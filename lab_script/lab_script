@@ -8,7 +8,7 @@ MONGOPASS = os.getenv('MONGOPASS')
 uri = "mongodb+srv://cluster0.pnxzwgz.mongodb.net/fpt9nh"
 client = MongoClient(uri, username='nmagee', password=MONGOPASS, connectTimeoutMS=200, retryWrites=True)
 db = client["fpt9nh"]
-collection = db.["movie_stars"]
+collection = db["movie_stars"]
 
 db.movie_stars.insertOne({"name":"Jessica Chastain","Movies":["Interstellar","Molly's Game","The Help"]})
 db.movie_stars.insertOne({"name":"Hugh Grant","Movies":["Notting Hill","Love Actually","4 Wedding and A Funeral"]})
@@ -20,3 +20,5 @@ three_docs = collection.find().limit(3) # find 3 docs in the collection
 # list the 3 docs
 for doc in three_docs:
     print(doc)
+
+# unable to connect to mongodb, so the db will not appear on mongo
